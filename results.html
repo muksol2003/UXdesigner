@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Results — HeuriVision</title>
+    <meta name="description" content="View AI usability analysis result and calculated metrics.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="top-strip">
+            <div class="page-shell top-strip-inner">
+                <span>Analysis output</span>
+                <span>AI response + automatic metrics</span>
+            </div>
+        </div>
+
+        <nav class="main-nav page-shell">
+            <a class="brand" href="index.html" aria-label="HeuriVision home">
+                <span class="brand-mark">H</span>
+                <span class="brand-text">HeuriVision</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html">Overview</a>
+                <a href="upload.html">Analyze</a>
+                <a href="history.html">History</a>
+                <a href="comparison.html">Comparison</a>
+                <a href="admin-stats.html">Statistics</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page-shell page-main">
+        <div class="breadcrumb">
+            <a href="index.html">Overview</a>
+            <span>›</span>
+            <a href="upload.html">Analyze</a>
+            <span>›</span>
+            <strong>Results</strong>
+        </div>
+
+        <section class="page-title-row">
+            <div>
+                <p class="eyebrow">AI output</p>
+                <h1>Analysis results</h1>
+                <p>
+                    This page shows the latest Gemini Vision response and the automatically calculated
+                    evaluation metrics.
+                </p>
+            </div>
+
+            <div class="page-actions">
+                <a class="button ghost" href="upload.html">Run another</a>
+                <a class="button primary" href="admin-stats.html">Open statistics</a>
+            </div>
+        </section>
+
+        <section id="resultsContainer" class="results-area"></section>
+    </main>
+
+    <script src="js/metrics.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
