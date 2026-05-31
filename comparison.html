@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategy Comparison — HeuriVision</title>
+    <meta name="description" content="Compare naive and structured heuristic prompt results side by side.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="top-strip">
+            <div class="page-shell top-strip-inner">
+                <span>Side-by-side strategy comparison</span>
+                <span>Naive prompt vs structured heuristic prompt</span>
+            </div>
+        </div>
+
+        <nav class="main-nav page-shell">
+            <a class="brand" href="index.html" aria-label="HeuriVision home">
+                <span class="brand-mark">H</span>
+                <span class="brand-text">HeuriVision</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html">Overview</a>
+                <a href="upload.html">Analyze</a>
+                <a href="history.html">History</a>
+                <a class="active" href="comparison.html">Comparison</a>
+                <a href="admin-stats.html">Statistics</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page-shell page-main">
+        <div class="breadcrumb">
+            <a href="index.html">Overview</a>
+            <span>›</span>
+            <strong>Comparison</strong>
+        </div>
+
+        <section class="page-title-row">
+            <div>
+                <p class="eyebrow">Qualitative comparison</p>
+                <h1>Naive vs structured output</h1>
+                <p>
+                    Select a screenshot label to compare AI outputs and metric values from both prompt strategies.
+                    This page is useful for thesis figures and Chapter 3 discussion.
+                </p>
+            </div>
+
+            <div class="small-info-card">
+                <span class="status-dot"></span>
+                <span>Comparison is based on saved local experiment runs</span>
+            </div>
+        </section>
+
+        <section class="comparison-controls">
+            <div class="form-field">
+                <label for="comparisonLabelSelect">Screenshot label</label>
+                <select id="comparisonLabelSelect">
+                    <option value="">Loading saved labels...</option>
+                </select>
+            </div>
+
+            <div class="form-field">
+                <label for="comparisonRunSelect">Run selection</label>
+                <select id="comparisonRunSelect">
+                    <option value="latest">Latest available run</option>
+                    <option value="1">Run 1</option>
+                    <option value="2">Run 2</option>
+                    <option value="3">Run 3</option>
+                </select>
+            </div>
+
+            <button id="loadComparisonButton" class="button primary" type="button">Load comparison</button>
+        </section>
+
+        <section id="comparisonContainer" class="comparison-area"></section>
+    </main>
+
+    <script src="js/metrics.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/comparison.js"></script>
+</body>
+</html>
