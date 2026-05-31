@@ -221,7 +221,42 @@ function initResultsPage() {
 
 function initHistoryPage() {
     const container = document.getElementById("historyContainer");
+const importJsonInput = document.getElementById("importJsonInput");
+const importJsonButton = document.getElementById("importJsonButton");
 
+if (importJsonInput && importJsonButton) {
+    importJsonButton.addEventListener("click", () => {
+        const file = importJsonInput.files[0];
+
+        if (!file) {
+            alert("Please choose a JSON file to import.");
+            return;
+        }
+
+        const reader = new FileReader();
+
+        reader.onload = event => {
+            try {
+                const importedData = JSON.parse(event.target.result);
+                const result = importDatabaseFromJson(importedData);
+
+                alert(
+                    `Import completed.\nScreenshots: ${result.screenshotsImported}\nExperiments: ${result.experimentsImported}`
+                );
+
+                window.location.reload();
+            } catch (error) {
+                alert(`Import failed: ${error.message}`);
+            }
+        };
+
+        reader.onerror = () => {
+            alert("Could not read the selected file.");
+        };
+
+        reader.readAsText(file);
+    });
+}
     if (!container) return;
 
     const experiments = getExperiments().slice().reverse();
