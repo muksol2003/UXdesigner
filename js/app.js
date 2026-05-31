@@ -47,6 +47,7 @@ function initUploadPage() {
     if (!form) return;
 
     initStrategyCards();
+    initApiKeyControls();
 
     fileInput.addEventListener("change", () => {
         showImagePreview(fileInput, preview);
