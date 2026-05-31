@@ -317,6 +317,37 @@ function renderHeuristicList(items) {
         </ul>
     `;
 }
+function initApiKeyControls() {
+    const apiKeyInput = document.getElementById("geminiApiKey");
+    const saveButton = document.getElementById("saveApiKeyButton");
+    const clearButton = document.getElementById("clearApiKeyButton");
+
+    if (!apiKeyInput || !saveButton || !clearButton) return;
+
+    const savedKey = getStoredGeminiApiKey();
+
+    if (savedKey) {
+        apiKeyInput.value = savedKey;
+    }
+
+    saveButton.addEventListener("click", () => {
+        const apiKey = apiKeyInput.value.trim();
+
+        if (!apiKey) {
+            alert("Please enter a Gemini API key.");
+            return;
+        }
+
+        saveGeminiApiKey(apiKey);
+        alert("API key saved in this browser.");
+    });
+
+    clearButton.addEventListener("click", () => {
+        clearGeminiApiKey();
+        apiKeyInput.value = "";
+        alert("API key removed from this browser.");
+    });
+}
 
 function escapeHtml(value) {
     return String(value ?? "")
