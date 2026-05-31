@@ -114,3 +114,28 @@ function downloadTextFile(content, filename, type) {
 
     URL.revokeObjectURL(url);
 }
+function importDatabaseFromJson(importedData) {
+    if (!importedData || typeof importedData !== "object") {
+        throw new Error("Invalid JSON file format.");
+    }
+
+    const screenshots = Array.isArray(importedData.screenshots)
+        ? importedData.screenshots
+        : [];
+
+    const experiments = Array.isArray(importedData.experiments)
+        ? importedData.experiments
+        : [];
+
+    if (screenshots.length === 0 && experiments.length === 0) {
+        throw new Error("The JSON file does not contain screenshots or experiments.");
+    }
+
+    localStorage.setItem(STORAGE_KEYS.screenshots, JSON.stringify(screenshots));
+    localStorage.setItem(STORAGE_KEYS.experiments, JSON.stringify(experiments));
+
+    return {
+        screenshotsImported: screenshots.length,
+        experimentsImported: experiments.length
+    };
+}
