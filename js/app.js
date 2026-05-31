@@ -55,7 +55,11 @@ function initUploadPage() {
 
     form.addEventListener("submit", async event => {
         event.preventDefault();
+const apiKeyInput = document.getElementById("geminiApiKey");
 
+if (apiKeyInput && apiKeyInput.value.trim()) {
+    saveGeminiApiKey(apiKeyInput.value.trim());
+}
         const file = fileInput.files[0];
 
         if (!file) {
