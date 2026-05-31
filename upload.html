@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyze Screenshot — HeuriVision</title>
+    <meta name="description" content="Upload a screenshot and run AI-powered usability analysis.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="top-strip">
+            <div class="page-shell top-strip-inner">
+                <span>Controlled experiment workspace</span>
+                <span>Target: 12 screenshots × 2 strategies × 3 runs</span>
+            </div>
+        </div>
+
+        <nav class="main-nav page-shell">
+            <a class="brand" href="index.html" aria-label="HeuriVision home">
+                <span class="brand-mark">H</span>
+                <span class="brand-text">HeuriVision</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html">Overview</a>
+                <a class="active" href="upload.html">Analyze</a>
+                <a href="history.html">History</a>
+                <a href="comparison.html">Comparison</a>
+                <a href="admin-stats.html">Statistics</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page-shell page-main">
+        <div class="breadcrumb">
+            <a href="index.html">Overview</a>
+            <span>›</span>
+            <strong>Analyze screenshot</strong>
+        </div>
+
+        <section class="page-title-row">
+            <div>
+                <p class="eyebrow">Screenshot analysis</p>
+                <h1>Run a usability evaluation</h1>
+                <p>
+                    Upload a web interface screenshot, assign it to an experimental group, and select one
+                    of the two prompt strategies.
+                </p>
+            </div>
+
+            <div class="small-info-card">
+                <span class="status-dot"></span>
+                <span>Gemini Vision API connected through client-side JavaScript</span>
+            </div>
+        </section>
+
+        <section class="analysis-layout">
+            <form id="analysisForm" class="analysis-form" autocomplete="off">
+                <div class="form-section">
+                    <h2>Experiment metadata</h2>
+
+                    <div class="form-grid two">
+                        <div class="form-field">
+                            <label for="screenshotLabel">Screenshot label</label>
+                            <input id="screenshotLabel" type="text" placeholder="Example: Apple homepage" required>
+                            <small>Use exactly the same label for all 6 runs of one screenshot.</small>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="groupName">Interface group</label>
+                            <select id="groupName" required>
+                                <option value="well-designed">A: Well-designed reference interface</option>
+                                <option value="problematic">B: Problematic interface</option>
+                                <option value="average">C: Average interface</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>Prompt strategy</h2>
+
+                    <div class="strategy-cards">
+                        <label class="strategy-card">
+                            <input type="radio" name="strategyRadio" value="naive" checked>
+                            <span>
+                                <strong>Naive Strategy</strong>
+                                <small>Baseline prompt with free-text output.</small>
+                            </span>
+                        </label>
+
+                        <label class="strategy-card">
+                            <input type="radio" name="strategyRadio" value="structured">
+                            <span>
+                                <strong>Structured Heuristic Strategy</strong>
+                                <small>Nielsen-based prompt with JSON output.</small>
+                            </span>
+                        </label>
+                    </div>
+
+                    <input id="strategy" type="hidden" value="naive">
+                </div>
+
+                <div class="form-section">
+                    <h2>Run settings</h2>
+
+                    <div class="form-grid two">
+                        <div class="form-field">
+                            <label for="runNumber">Run number</label>
+                            <select id="runNumber" required>
+                                <option value="1">Run 1</option>
+                                <option value="2">Run 2</option>
+                                <option value="3">Run 3</option>
+                            </select>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="screenshotFile">Screenshot file</label>
+                            <input id="screenshotFile" type="file" accept="image/png,image/jpeg,image/webp" required>
+                            <small>Recommended: clear full-page or viewport screenshot.</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button id="analyzeButton" class="button primary" type="submit">Analyze with Gemini</button>
+                    <a class="button ghost" href="history.html">Open history</a>
+                </div>
+
+                <div id="statusBox" class="status-box" aria-live="polite"></div>
+            </form>
+
+            <aside class="preview-panel">
+                <div class="preview-header">
+                    <h2>Screenshot preview</h2>
+                    <span class="muted">Before analysis</span>
+                </div>
+
+                <div id="imagePreview" class="image-preview-placeholder">
+                    <span>No screenshot uploaded yet</span>
+                </div>
+
+                <div class="helper-note">
+                    <strong>Tip:</strong>
+                    For better consistency, use the same browser zoom level and similar screenshot size
+                    across all experimental samples.
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <script src="js/config.js"></script>
+    <script src="js/prompts.js"></script>
+    <script src="js/gemini.js"></script>
+    <script src="js/metrics.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
