@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeuriVision — AI Usability Analyzer</title>
+    <meta name="description" content="AI-powered web application for heuristic usability analysis of web interface screenshots.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="top-strip">
+            <div class="page-shell top-strip-inner">
+                <span>RNU Bachelor Thesis Prototype</span>
+                <span>Gemini Vision · Nielsen Heuristics · Client-side MVP</span>
+            </div>
+        </div>
+
+        <nav class="main-nav page-shell">
+            <a class="brand" href="index.html" aria-label="HeuriVision home">
+                <span class="brand-mark">H</span>
+                <span class="brand-text">HeuriVision</span>
+            </a>
+
+            <div class="nav-links">
+                <a class="active" href="index.html">Overview</a>
+                <a href="upload.html">Analyze</a>
+                <a href="history.html">History</a>
+                <a href="comparison.html">Comparison</a>
+                <a href="admin-stats.html">Statistics</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section page-shell">
+            <div class="hero-copy">
+                <p class="eyebrow">AI-powered usability evaluation</p>
+                <h1>Visual usability analysis grounded in Nielsen’s heuristics.</h1>
+                <p class="hero-text">
+                    HeuriVision analyzes screenshots of web interfaces with Gemini Vision API and compares
+                    two prompt engineering strategies: a naive baseline prompt and a structured heuristic-based prompt.
+                </p>
+
+                <div class="hero-actions">
+                    <a class="button primary" href="upload.html">Start analysis</a>
+                    <a class="button ghost" href="admin-stats.html">View experiment stats</a>
+                </div>
+            </div>
+
+            <aside class="hero-card">
+                <div class="hero-card-header">
+                    <span class="status-dot"></span>
+                    <span>Experiment design</span>
+                </div>
+
+                <div class="research-grid">
+                    <div>
+                        <strong>2</strong>
+                        <span>Prompt strategies</span>
+                    </div>
+                    <div>
+                        <strong>12</strong>
+                        <span>Screenshots target</span>
+                    </div>
+                    <div>
+                        <strong>72</strong>
+                        <span>Planned test runs</span>
+                    </div>
+                    <div>
+                        <strong>4</strong>
+                        <span>Quantitative metrics</span>
+                    </div>
+                </div>
+            </aside>
+        </section>
+
+        <section class="page-shell content-section">
+            <div class="section-heading">
+                <p class="eyebrow">Research logic</p>
+                <h2>What the prototype evaluates</h2>
+            </div>
+
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <span class="feature-number">01</span>
+                    <h3>Naive prompting</h3>
+                    <p>
+                        A simple baseline prompt asks the model to identify what is wrong with the interface.
+                        This strategy is used as a comparison point.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <span class="feature-number">02</span>
+                    <h3>Structured heuristic prompting</h3>
+                    <p>
+                        The model receives Nielsen’s 10 Usability Heuristics and must return issues in a structured,
+                        measurable format.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <span class="feature-number">03</span>
+                    <h3>Automatic metric calculation</h3>
+                    <p>
+                        Outputs are evaluated using heuristic coverage, issue specificity, potential false positive rate,
+                        and consistency score.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="page-shell content-section">
+            <div class="wide-panel">
+                <div>
+                    <p class="eyebrow">Bachelor thesis scope</p>
+                    <h2>Client-side web application without backend</h2>
+                    <p>
+                        The application runs fully in the browser, uses localStorage for experiment history,
+                        and communicates directly with Gemini Vision API. This makes the prototype easy to deploy
+                        on GitHub Pages and suitable for controlled experimental testing.
+                    </p>
+                </div>
+
+                <a class="button primary" href="upload.html">Upload screenshot</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="page-shell footer-grid">
+            <div>
+                <strong>HeuriVision</strong>
+                <p>AI usability analysis prototype for BSc thesis research.</p>
+            </div>
+
+            <div>
+                <strong>Methods</strong>
+                <p>Literature analysis · Market analysis · System development · Controlled experiment</p>
+            </div>
+
+            <div>
+                <strong>University</strong>
+                <p>Riga Nordic University · Information Systems · 2026</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
