@@ -1,6 +1,8 @@
 async function analyzeScreenshotWithGemini(imageBase64, mimeType, strategy) {
-    if (!GEMINI_API_KEY || GEMINI_API_KEY === "PASTE_YOUR_GEMINI_API_KEY_HERE") {
-        throw new Error("Gemini API key is missing. Please add it to js/config.js.");
+    const apiKey = getStoredGeminiApiKey();
+
+    if (!apiKey) {
+        throw new Error("Gemini API key is missing. Please enter your API key on the upload page.");
     }
 
     const prompt = getPromptByStrategy(strategy);
@@ -34,7 +36,7 @@ async function analyzeScreenshotWithGemini(imageBase64, mimeType, strategy) {
         }
     };
 
-    const response = await fetch(GEMINI_API_URL, {
+    const response = await fetch(buildGeminiApiUrl(apiKey), {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
