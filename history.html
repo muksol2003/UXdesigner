@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment History — HeuriVision</title>
+    <meta name="description" content="View all saved experiment runs from localStorage.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="top-strip">
+            <div class="page-shell top-strip-inner">
+                <span>Local experiment database</span>
+                <span>Stored in browser localStorage</span>
+            </div>
+        </div>
+
+        <nav class="main-nav page-shell">
+            <a class="brand" href="index.html" aria-label="HeuriVision home">
+                <span class="brand-mark">H</span>
+                <span class="brand-text">HeuriVision</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html">Overview</a>
+                <a href="upload.html">Analyze</a>
+                <a class="active" href="history.html">History</a>
+                <a href="comparison.html">Comparison</a>
+                <a href="admin-stats.html">Statistics</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page-shell page-main">
+        <div class="breadcrumb">
+            <a href="index.html">Overview</a>
+            <span>›</span>
+            <strong>Experiment history</strong>
+        </div>
+
+        <section class="page-title-row">
+            <div>
+                <p class="eyebrow">Saved runs</p>
+                <h1>Experiment history</h1>
+                <p>
+                    Review all completed test runs, export data to CSV, or clear local data if needed.
+                </p>
+            </div>
+
+            <div class="page-actions">
+                <button class="button ghost" type="button" onclick="exportExperimentsToCsv()">Export CSV</button>
+                <a class="button primary" href="upload.html">Add run</a>
+            </div>
+        </section>
+
+        <section id="historyContainer" class="history-area"></section>
+    </main>
+
+    <script src="js/metrics.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
