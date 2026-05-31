@@ -57,6 +57,35 @@
 
         <section class="analysis-layout">
             <form id="analysisForm" class="analysis-form" autocomplete="off">
+<section class="form-section">
+    <h2>Gemini API key</h2>
+
+    <div class="form-grid">
+        <div class="form-field">
+            <label for="geminiApiKey">API key</label>
+            <input
+                type="password"
+                id="geminiApiKey"
+                placeholder="Enter your Gemini API key for this browser"
+                autocomplete="off"
+            >
+            <small>
+                The key is stored only in this browser using localStorage and is not committed to GitHub.
+            </small>
+        </div>
+
+        <div class="form-actions">
+            <button class="button ghost" type="button" id="saveApiKeyButton">
+                Save API key
+            </button>
+
+            <button class="button danger" type="button" id="clearApiKeyButton">
+                Clear API key
+            </button>
+        </div>
+    </div>
+</section>
+                
                 <div class="form-section">
                     <h2>Experiment metadata</h2>
 
