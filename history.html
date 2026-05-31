@@ -47,7 +47,17 @@
                     Review all completed test runs, export data to CSV, or clear local data if needed.
                 </p>
             </div>
+<div class="import-box">
+    <input
+        type="file"
+        id="importJsonInput"
+        accept="application/json"
+    >
 
+    <button class="button secondary" id="importJsonButton" type="button">
+        Import JSON
+    </button>
+</div>
             <div class="page-actions">
                 <button class="button ghost" type="button" onclick="exportExperimentsToCsv()">Export CSV</button>
                 <a class="button primary" href="upload.html">Add run</a>
